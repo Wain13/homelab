@@ -31,5 +31,5 @@ else
   fi
 
   echo "User '$username' created successfully."
-  echo "Use 'passwd $username' form an admin or root account to set the user password."
+  echo "Use 'passwd $username' from an admin or root account to set the user password."
 fi
