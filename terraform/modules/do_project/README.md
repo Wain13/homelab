@@ -1,1 +1,0 @@
-# Digitalocean Project module
