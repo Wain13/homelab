@@ -1,8 +1,0 @@
-users:
-  - name: wain
-    sudo: ["ALL=(ALL) NOPASSWD:ALL"]
-    groups: sudo,adm,www-data
-    shell: /bin/bash
-    ssh_authorized_keys:
-      - ${publickey}
-
