@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Invoke ssh for digital ocean servers, 
+# check /homelab/.ips for servername file with ipv4 address
+# add digitalocean ssh key if not alredy present in memory
+
+if [[ $# -lt 1 || $# -gt 2 ]]; then
+    echo "usage: dossh <servername> <username>"
+    exit
+fi
+
+if [ ! -f $HOMELAB/.ips/$1 ]; then
+    echo "ip file $HOMELAB/.ips/$1 not found"
+    exit
+fi
+
+if [[ $# -eq 1 ]]; then
+    usr="root"
+else
+    usr="$2"
+fi
+
+
+if  ! (ssh-add -l | grep -q "$(ssh-keygen -lf /home/wain/.ssh/tf_id_ed25519.pub | awk '{print $2}')") ; then
+    ssh-add /home/wain/.ssh/tf_id_ed25519
+fi
+
+addr=$(cat $HOMELAB/.ips/$1)
+
+ssh $usr@$addr
