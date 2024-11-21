@@ -6,4 +6,6 @@ users:
     shell: /bin/bash
     ssh_authorized_keys:
       - ${publickey}
-
+packages:
+  - nginx
+  - python3
