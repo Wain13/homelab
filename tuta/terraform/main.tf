@@ -56,3 +56,8 @@ resource "digitalocean_firewall" "web" {
     source_addresses = ["0.0.0.0/0", "::/0"]
   }
 }
+
+resource "local_file" "ipv4" {
+  content = module.digitalocean_droplet.ipv4_address
+  filename = "${path.module}/../../.ips/tuta"
+}
