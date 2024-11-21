@@ -31,13 +31,28 @@ module "digitalocean_project" {
 }
 
 resource "digitalocean_firewall" "web" {
-  name = "SSH"
+# While our app will only be listening for HTTPS, we need 80 open for apt installs. 
+# Will use nginx to reroute to 80 to 443 once everything is up and running.
+
+  name = "HTTP-HTTPS-SSH"
 
   droplet_ids = [module.digitalocean_droplet.id]
 
   inbound_rule {
     protocol         = "tcp"
     port_range       = "22"
+    source_addresses = ["0.0.0.0/0", "::/0"]
+  }
+  
+  inbound_rule {
+    protocol         = "tcp"
+    port_range       = "80"
+    source_addresses = ["0.0.0.0/0", "::/0"]
+  }
+  
+  inbound_rule {
+    protocol         = "tcp"
+    port_range       = "443"
     source_addresses = ["0.0.0.0/0", "::/0"]
   }
 }
