@@ -10,7 +10,7 @@ cache = redis.Redis(host='redis', port=6379)
 def hello():
     msg = cache.get('post')
     if msg == None:
-        cache.set('post','loading')
+        cache.set('post','no post yet')
         msg = cache.get('post')
 
     return f'{msg}\n'
