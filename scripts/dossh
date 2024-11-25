@@ -3,6 +3,7 @@
 # Invoke ssh for digital ocean servers, 
 # check /homelab/.ips for servername file with ipv4 address
 # add digitalocean ssh key if not alredy present in memory
+# env arg HOMELAB = current path to homelab git repo
 
 if [[ $# -lt 1 || $# -gt 2 ]]; then
     echo "usage: dossh <servername> <username>"
