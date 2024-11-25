@@ -1,8 +1,8 @@
-# Meeting recording archiving
+# Archive meeting recordings from zoom to google drive
 
 This project will ultimately run for TUTA theatre company.
 
-The end goal is a containerized webhook function hosted on a digitalocean droplet that will automatically move completed zoom meeting recordings from zoom servers to the company google drive. 
+The end goal is a containerized webhook function hosted on a digitalocean droplet that will automatically move completed zoom meeting recordings from zoom servers to the company google drive.  
 
 Zoom has limited storage space for meeting recordings and several company admin users aren't familiar with wokring on the back end of zoom. Automatic meeting archival to google drive will eliminate automamted "out of space" warning messages from zoom servers, and will simplify the cleanup and tagging of meetings by admins.
 
